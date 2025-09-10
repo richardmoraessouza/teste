@@ -1,1 +1,2 @@
-web: gunicorn lista_de_tarefas.lista_de_tarefas.wsgi
+
+web: cd backend && gunicorn lista_de_tarefas.wsgi:application --bind 0.0.0.0:$PORT
