@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        {% for t in tarefas %}
+            <li><strong>{{ t.nome }}</strong> - {{ t.descricao }}</li>
+        {% empty %}
+            <li>nenhuma tarefa cadastrada.</li>
+        {% endfor %}
+    </ul>
+    <h2>nova tarefa</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="text" name="descricao" placeholder="Descrição" required>
+        <button type="submit">Adicionar</button>
+    </form>
+</body>
+</html>
